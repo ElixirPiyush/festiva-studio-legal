@@ -45,6 +45,8 @@ footer { margin-top:48px; font-size:14px; color:var(--muted); }
 <tr><td>Videos you create</td><td>Saved to your phone's <code>Movies/Festiva</code> folder (Android 9 and older: the app's own folder, see §7). You can delete them in the app or in your Gallery.</td><td>Only if <strong>you</strong> share them</td></tr>
 <tr><td>App settings (language, video quality, onboarding done)</td><td>Saved in the app's private storage.</td><td>No</td></tr>
 <tr><td>Diagnostics log</td><td>If the app hits an error, a short technical note is kept on the phone (the last few entries). Photo paths, file names and long numbers are removed from it first. It is only shared if <strong>you</strong> tap “Copy diagnostics report” and send it to us yourself.</td><td>Only if <strong>you</strong> send it</td></tr>
+<tr><td>Crash reports</td><td>If the app crashes or hits a serious error, a technical report goes to Google Firebase Crashlytics: the error and where in the app's code it happened, phone model, Android version, app version, and a random installation ID. Never your photos, names, messages or videos. On by default; turn off in <strong>Profile › Send crash reports</strong>.</td><td>Yes, to Google Firebase (our service provider)</td></tr>
+<tr><td>Usage statistics</td><td>Only if <strong>you</strong> turn on <strong>Profile › Share anonymous usage statistics</strong>: which templates are opened and whether videos export successfully, with phone model, Android version and a random app-instance ID, sent to Google Analytics for Firebase. Never your photos, names, messages or file paths.</td><td>Only if <strong>you</strong> turn it on</td></tr>
 </table></div>
 <p>Data in the app's private storage is deleted when you delete the draft or video, clear the app's data, or uninstall the app.</p>
 <h2>3. Sharing your videos</h2>
@@ -52,15 +54,19 @@ footer { margin-top:48px; font-size:14px; color:var(--muted); }
 <h2>4. Purchases (Festiva Premium)</h2>
 <p>Premium plans are sold through <strong>Google Play</strong>. We never see your card or payment details. The app receives a purchase confirmation from Google Play and checks it on your phone to unlock premium templates. Google Play's own data practices apply to purchases: <a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a>.</p>
 <p>The Google Play Billing library that the app uses to talk to Google Play may send its own technical and diagnostic data to Google. This is part of Google Play, not something we receive.</p>
-<h2>5. Analytics and crash reports</h2>
-<p>This version of the app <strong>does not send analytics or crash reports</strong> to us or to any analytics company.</p>
-<p>*(If a later version adds optional usage statistics: they will be <strong>off unless you turn them on</strong> in Settings, will contain only which templates are used and whether exports work, and will never include your photos, names, messages or file paths. This section and the Play Store data-safety information will be updated first.)*</p>
+<h2>5. Crash reports and usage statistics</h2>
+<p>We use <strong>Google Firebase</strong> (Google LLC) as our service provider for two things:</p>
+<ul>
+<li><strong>Crash reports (Firebase Crashlytics)</strong> — on by default. If the app crashes, a technical report helps us fix it: the error and stack trace, phone model, Android version, app version, and a random installation ID. You can turn this off at any time in <strong>Profile › Send crash reports</strong>.</li>
+<li><strong>Usage statistics (Google Analytics for Firebase)</strong> — <strong>off unless you turn it on</strong> in <strong>Profile › Share anonymous usage statistics</strong>. It records which templates are opened and whether exports succeed, with phone model, Android version and a random app-instance ID.</li>
+</ul>
+<p>Neither ever includes your photos, the names or messages you type, your videos or file paths. We do not use this data for advertising and do not sell it. Google processes it under the Firebase terms and Google's privacy policy: <a href="https://firebase.google.com/support/privacy">https://firebase.google.com/support/privacy</a> and <a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a>. Crash reports are kept by Firebase for 90 days.</p>
 <h2>6. Ads</h2>
 <p>This version of the app shows <strong>no ads</strong>.</p>
 <h2>7. Permissions</h2>
 <ul>
 <li><strong>Photos:</strong> Android's photo picker. No broad access to your gallery.</li>
-<li><strong>Internet / network state:</strong> requested by the Google Play Billing library so purchases work. The app's own code does not upload anything.</li>
+<li><strong>Internet / network state:</strong> used by Google Play Billing (purchases) and Firebase (crash reports, and usage statistics if you turn them on). Your photos, text and videos are never uploaded.</li>
 <li><strong>Billing:</strong> to buy Premium through Google Play.</li>
 <li>No storage permission. On Android 10 and newer, videos are saved to <code>Movies/Festiva</code>; on Android 9 and older they are kept in the app's own folder (<code>Android/data/…/Movies/Festiva</code>), which is removed when you uninstall the app.</li>
 </ul>
